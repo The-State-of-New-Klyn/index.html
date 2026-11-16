@@ -1,6 +1,295 @@
-<html>
-  <title>(c) New Klyn | 2026</title>
-  <body>
-    <center><h1>New-Klyn</h1></center>
-  </body>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новый Клин — Виртуальное Государство</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-red: #C4222A;
+            --color-black: #1A1A1A;
+            --color-white: #F7F7F7;
+            --color-gray: #D3D3D3;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 2px solid var(--color-black);
+            background: var(--color-white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-black);
+        }
+
+        .logo-text span {
+            color: var(--color-red);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-black);
+            font-weight: 600;
+            margin-left: 20px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--color-red);
+        }
+
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: var(--color-red);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.9;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            left: -10%;
+            width: 120%;
+            height: 120px;
+            background-color: var(--color-black);
+            transform: skewY(-5deg);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(4rem, 10vw, 8rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--color-red);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            max-width: 500px;
+            border-left: 5px solid var(--color-red);
+            padding-left: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--color-black);
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-black);
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn:hover {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            transform: translate(-3px, -3px);
+            box-shadow: 5px 5px 0 var(--color-red);
+        }
+
+        .about {
+            padding: 100px 5%;
+            background-color: var(--color-white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: var(--color-gray);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23e0e0e0"/><text x="50" y="50" font-family="sans-serif" font-size="12" text-anchor="middle" fill="%23999">Ваш логотип</text></svg>');
+            background-size: cover;
+            background-position: center;
+            border: 4px solid var(--color-black);
+            box-shadow: 15px 15px 0 var(--color-red);
+        }
+
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .features {
+            padding: 80px 5%;
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .features h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: transparent;
+            padding: 30px;
+            border: 2px solid var(--color-white);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--color-red);
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .card h3 {
+            font-family: var(--font-heading);
+            color: var(--color-red);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: var(--color-white);
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 4px solid var(--color-black);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero::before { width: 250px; height: 250px; }
+            .about { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">Новый <span>Клин</span></div>
+        <nav>
+            <a href="#about">О проекте</a>
+            <a href="#features">Принципы</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Новый <span>Клин</span></h1>
+            <p>Виртуальное государство нового поколения. Территория идей, порядка и цифровой свободы.</p>
+            <a href="#about" class="btn">Узнать больше</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-image"></div> 
+        <div class="about-text">
+            <h2>Что такое Новый Клин?</h2>
+            <p>Новый Клин — это симуляция государственности, построенная на принципах конструктивизма и цифровой эстетики. Мы создаем пространство для творчества, самореализации и управления.</p>
+            <p>Наш проект объединяет людей, которым близки идеи порядка, строгой геометрии мысли и прогресса. Это не просто игра, это социальный эксперимент.</p>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Наши Принципы</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>01. Структура</h3>
+                <p>Четкая иерархия и понятные правила. В основе нашего государства лежит строгий кодекс и логика.</p>
+            </div>
+            <div class="card">
+                <h3>02. Дизайн</h3>
+                <p>Эстетика конструктивизма. Мы верим, что форма определяет содержание, а красота — в простоте.</p>
+            </div>
+            <div class="card">
+                <h3>03. Прогресс</h3>
+                <p>Внедрение цифровых технологий во все сферы жизни виртуального общества. Движение только вперед.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Виртуальное Государство «Новый Клин». Все права защищены.</p>
+    </footer>
+
+</body>
 </html>
